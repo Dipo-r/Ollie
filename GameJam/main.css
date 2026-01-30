@@ -23,15 +23,26 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+     background: transparent; /* keeps logo visible */
+    color: #ededed;
 }
 
 .logo{
-    font-size: 25px;
-    color: #ededed;
-    text-decoration: none;
-    font-weight: 600;
-
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* remove underline */
+    color: #E63946;
+    font-size: 28px;
+    font-weight: 700;
+    gap: 10px; /* space between logo image and text */
 }
+
+.logo-img {
+    width: 100px; /* adjust size as needed */
+    height: auto;
+}
+
+
 
 .navbar a {
     font-size:18px;
@@ -47,30 +58,64 @@ body{
     color: #00abf0;
 
 }
-.home{
+.home {
+    position: relative;
+    background: #000000; /* black base */
     height: 100vh;
-    background: url('homee.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
     display: flex;
-    align-items: center; 
-    padding: 0 10%
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
 }
 
-.home-content{
+.home::before, 
+.home::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: transparent;
+    border: 2px solid #E63946; /* dragon red lines */
+    border-radius: 50%; /* makes them curved */
+    opacity: 0.1; /* subtle effect */
+    animation: rotateLines 20s linear infinite;
+    z-index: 0;
+}
+
+.home::after {
+    border-width: 1px;
+    opacity: 0.15;
+    animation-duration: 35s;
+}
+
+@keyframes rotateLines {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.home-content {
+    position: relative;
+    z-index: 1; /* stays above the animated red lines */
     max-width: 600px;
 }
 
+
 .home-content h1{
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 1.2;
+     font-size: 56px;
+    font-weight: 800;
+    color: #E63946;
 }
 
 .subtitle {
     font-size: 32px;
     font-weight: 700;
-    color: #00abf0;
+    font-size: 32px;
+    color: #FF5C5C;
 }
 
 .home-content p{
@@ -189,27 +234,30 @@ transition: .5s;
     color: #ededed;
     text-decoration: none;
     transition: .3s;
+    color: #E63946;
 }
 
 .scroll-down:hover {
-    color: #00abf0;
+      color: #FF5C5C;
 }
 
 .team {
     min-height: 100vh;
     padding: 100px 10%;
-    background: #081b29;
+    background: #112128; /* dark gray, matches theme */
     color: #ededed;
 }
 
 .team h2 {
     font-size: 48px;
     margin-bottom: 10px;
+    color: #E63946; /* dragon red */
 }
 
 .team p {
     max-width: 600px;
     margin-bottom: 40px;
+    color: #CCCCCC; /* softer text for descriptions */
 }
 
 .team-container {
@@ -219,7 +267,7 @@ transition: .5s;
 }
 
 .team-member {
-    background: #112e42;
+    background: #1A2A3D; /* slightly lighter than section */
     padding: 25px;
     border-radius: 12px;
     transition: .3s;
@@ -227,15 +275,17 @@ transition: .5s;
 
 .team-member:hover {
     transform: translateY(-5px);
+    background: #112B40; /* subtle hover effect */
 }
 
 .team-member h3 {
     font-size: 22px;
     margin-bottom: 5px;
+    color: #E63946; /* name in red */
 }
 
 .team-member span {
-    color: #00abf0;
+    color: #FF5C5C; /* role text in lighter red */
     font-size: 14px;
     font-weight: 600;
 }
@@ -243,4 +293,64 @@ transition: .5s;
 .team-member p {
     font-size: 14px;
     margin-top: 10px;
+    color: #CCCCCC; /* description text soft white */
 }
+
+.highlights {
+    padding: 100px 10%;
+    background: #081218; /* match hero dark for balance */
+    color: #ededed;
+}
+
+.highlights h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #E63946;
+}
+
+.highlights p {
+    max-width: 700px;
+    margin-bottom: 50px;
+    color: #CCCCCC;
+}
+
+.highlights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.highlight-card {
+    background: #112128;
+    padding: 25px;
+    border-radius: 12px;
+    transition: .3s;
+
+    display: flex;
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    background: #1A2A3D; /* subtle hover */
+}
+
+.highlight-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #E63946;
+}
+
+.highlight-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #CCCCCC;
+}
+
+.highlight-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+

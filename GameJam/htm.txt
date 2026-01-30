@@ -10,7 +10,7 @@
 <body>
     <header class="header">
     <a href="#home" class="logo">
-        <img src="dragon-logo-bg.jpg" alt="Mask On Logo" class="logo-img">
+        <img src="mask-on-logo.jpg" alt="Mask On Logo" class="logo-img">
         Mask On
     </a>
 </header>
